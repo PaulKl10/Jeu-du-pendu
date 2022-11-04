@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="csspendu.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bienvenue dans le couloir de la mort</h1>
+    <p id="para">Pour survivre c est tres simple, <br>Essayez de deviner le mot de votre camarade en proposant une lettre par tour, mais <span style="color : red; -webkit-text-stroke: 1px rgb(226, 230, 6);">ATTENTION</span>  aux erreurs, elles pourraient vous etre fatale...</p>
+  <div id="menu"><p class="ici">Vous n avez plus qu a cliquer ICI </p>
+    <div class="fleche">&dArr;</div>
+    <button onclick="devinette()">TENTER SA CHANCE</button></div>
+<div id="pendu">
+    <div id="barre1"></div>
+    <div id="barre2"></div>
+    <div id="barre3"></div>
+    <div id="barre4"></div>
+    <div id="corde"></div>
+    <div id="tete"></div>
+    <div id="corps"></div>
+    <div id="corde2"></div>
+    <div id="bras1"></div>
+    <div id="bras2"></div>
+    <div id="jambe1"></div>
+    <div id="jambe2"></div>
+</div>
+<input type="text" id="lettre" maxlength="1">
+<button id="essayer" onclick="essayer()">Essayer</button>
+<button id="recommencer" onclick="location.reload()">Recommencer</button>
+<p id="reponse"></p>
+<p id="histo"></p>
+<span id="votre">Votre choix</span>
+
+
+    <script>
+        var compteur = 0;
+        var texte = document.getElementById('para');
+        var mot = "";
+        var valide = "";
+        var reussi = 0;
+        var keyBoard = document.getElementById('lettre');
+        var histor = "";
+        
+
+        function devinette(){
+            mot= prompt("Quel est le mot à faire deviner ?");
+            while(mot==""){
+                alert("Vous n'avez rien écrit ! ");
+                mot= prompt("Quel est le mot à faire deviner ?");
+            }
+            document.getElementById("menu").style.display = 'none';
+            document.getElementById("para").style.display = 'none';
+            document.getElementById("essayer").style.display ='block';    
+            document.getElementById("lettre").style.display ='block';
+            document.getElementById("histo").style.display ='block';
+            document.getElementById("votre").style.display ='block';
+            var table = "<table><tr>";
+            for(var i=0;i<mot.length;i++){
+                table = table + "<td><p id='p"+i+"'>"+mot[i]+"</p></td>";
+            }
+            table = table + "</tr></table>"
+            document.getElementById('reponse').innerHTML = table;
+            for(var i=0;i<=mot.length;i++){
+                    if(mot[i]==" "){
+                        document.getElementById('p'+i).style.visibility = 'visible';
+                        document.getElementById('p'+i).innerText = '_';
+                        reussi = reussi + 1
+                        
+                    }
+                }
+            
+        }
+        keyBoard.addEventListener('keydown', e =>{
+            
+            if(e.keyCode === 13){
+                essayer();
+                }
+            })
+         
+        function essayer(){
+            var choix = document.getElementById('lettre').value;
+            var faux = 0;
+            
+            if(document.getElementById('lettre').value==""){
+                alert("Attention, aucune lettre n'a été saisie ! ")
+            }
+
+            else{
+            
+                for(var i=0;i<=mot.length;i++){
+                    if(choix == mot.toLowerCase()[i] && document.getElementById('p'+i).style.visibility != 'visible'){
+                    document.getElementById('p'+i).style.visibility = 'visible';
+                    faux++;
+                    reussi = reussi + 1
+
+                    }
+                }
+                console.log(choix)
+                console.log(mot[i])
+                    if(faux == 0){
+                        compteur = compteur + 1;
+                        console.log(compteur)
+                        if(compteur == 1){
+                            document.getElementById("barre1").style.display = 'block';
+                        }
+                        if(compteur == 2){
+                            document.getElementById("barre2").style.display = 'block';
+                        }
+                        if(compteur == 3){
+                            document.getElementById("barre3").style.display = 'block';
+                        }
+                        if(compteur == 4){
+                            document.getElementById("barre4").style.display = 'block';
+                        }
+                        if(compteur == 5){
+                            document.getElementById("corde").style.display = 'block';
+                        }
+                        if(compteur == 6){
+                            document.getElementById("tete").style.display = 'block';
+                        }
+                        if(compteur == 7){
+                            document.getElementById("corps").style.display = 'block';
+                            document.getElementById("corde2").style.display = 'block';
+                        }
+                        if(compteur == 8){
+                            document.getElementById("bras1").style.display = 'block';
+                        }
+                        if(compteur == 9){
+                            document.getElementById("bras2").style.display = 'block';
+                        }
+                        if(compteur == 10){
+                            document.getElementById("jambe1").style.display = 'block';
+                        }
+                        if(compteur == 11){
+                            document.getElementById("jambe2").style.display = 'block';
+                            document.getElementById("essayer").style.display ='none';
+                            texte.innerHTML= "<p class='bilan'>Perdu, Vous etes mort,  le mot etait <span style=color:white;>"+mot+"</span></p>";
+                            texte.style.display='block';
+                            document.getElementById("recommencer").style.display ='block';
+                            document.getElementById("lettre").style.display ='none';
+                            document.getElementById("votre").style.display ='none';
+                            document.getElementById("reponse").style.display ='none';
+                            
+                        }
+                        histor = histor + choix+" ";
+                        document.getElementById('histo').innerText = histor;
+                        
+                    }
+                    if(reussi==mot.length){
+                        texte.innerText= "Bravo ";
+                        texte.style.display = 'block';
+                        document.getElementById("essayer").style.display ='none';
+                        document.getElementById("lettre").style.display ='none';
+                        document.getElementById("recommencer").style.display ='block';
+                        document.getElementById("votre").style.display ='none';
+                        document.getElementById("reponse").style.top = '23rem'
+                        
+                    }
+            }
+
+                 
+                document.getElementById('lettre').value=""
+            
+           
+        }
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,276 @@
+  @font-face {
+        font-family: "OnFire";
+        src: url(OnFire.ttf);
+    }
+
+body{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-image: url("fire.jpg");
+}
+
+h1{
+    text-align: center;
+    font-size: 5rem;
+    margin-top: 4rem;
+    -webkit-text-stroke: 1px rgb(94, 1, 1);
+    font-family: 'OnFire';
+    color: rgb(243, 3, 3);
+    font-weight: bold;
+}
+
+p{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 2rem;
+    /* background-color: rgb(255, 255, 255,.2); */
+    -webkit-text-stroke: 2px rgb(226, 0, 0);
+    font-family: 'OnFire';
+    color: yellow;
+    
+}
+
+button{
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    font-size: 3rem;
+    background-color: transparent;
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    font-family: 'OnFire';
+    transition: 1s;
+
+}
+button:hover{
+    cursor: pointer;
+    background-color: red;
+    border-radius: 10px;
+    color: rgb(255, 255, 0);
+    -webkit-text-stroke: 3px rgb(87, 0, 0);
+    
+}
+
+.ici{
+    margin-top: 3rem;
+    color: rgb(243, 116, 57);
+}
+.fleche{
+    text-align: center;
+    color: rgb(255, 0, 0);
+    font-size: 5rem;
+    font-weight: bold; 
+    margin-top: -2rem; 
+}
+
+#barre1{
+    position: absolute;
+    background-color: white;
+    width: 9rem;
+    height: 1.5rem;
+    top: 8rem;
+    display: none;
+}
+#barre2{
+    position: absolute;
+    background-color: white;
+    width: 1.5rem;
+    height: 22rem;
+    top: -13rem;
+    left: 4rem;
+    display: none;
+}
+#barre3{
+    position: absolute;
+    background-color: white;
+    width: 15rem;
+    height: 1.5rem;
+    top: -14rem;
+    left: 4rem;
+    display: none;
+}
+#barre4{
+    position: absolute;
+    background-color: white;
+    width: 8rem;
+    height: 1.5rem;
+    top: -11rem;
+    left: 3.6rem;
+    transform: rotate(-45deg);
+    display: none;
+}
+#corde{
+    position: absolute;
+    background-color: rgb(243, 211, 67);
+    width: 0.5rem;
+    height: 6rem;
+    top: -14rem;
+    left: 18rem;
+    display: none;
+}
+#tete{
+    position: absolute;
+    background-color: white;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    top: -10rem;
+    left: 16.8rem;
+    z-index: 2;
+    display: none;
+}
+#corps{
+    position: absolute;
+    background-color: white;
+    width: 1.5rem;
+    height: 5rem;
+    top: -7rem;
+    left: 17.1rem;
+    display: none;
+    
+}
+#corde2{
+    position: absolute;
+    background-color: rgb(243, 211, 67);
+    width: 2rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    top: -8.4rem;
+    left: 16.9rem;
+    z-index: 1;
+    display: none;
+}
+
+#bras1{
+    position: absolute;
+    background-color: white;
+    width: 1rem;
+    height: 4rem;
+    top: -6.8rem;
+    left: 16.7rem;
+    border-right:1px rgb(133, 132, 132) solid;  
+    display: none;
+}
+#bras2{
+    position: absolute;
+    background-color: white;
+    width: 1rem;
+    height: 4rem;
+    top: -6.8rem;
+    left: 18.3rem;
+    display: none;
+}
+#jambe1{
+    position: absolute;
+    background-color: white;
+    width: 1rem;
+    height: 4rem;
+    top: -3rem;
+    left: 17rem;
+    border-right:1px rgb(133, 132, 132) solid; 
+    z-index: 5;
+    display: none;
+}
+#jambe2{
+    position: absolute;
+    background-color: white;
+    width: 1rem;
+    height: 4rem;
+    top: -3rem;
+    left: 18rem;
+    z-index: 4;
+    display: none;
+}
+
+#pendu{
+    position: absolute;
+    left: 10%;
+    top: 34rem;
+}
+
+#essayer{
+    display: none;
+    position: absolute;
+    top: 30rem;
+    margin: auto;
+    left:44.5rem;
+}
+#recommencer{
+    display: none;
+    position: absolute;
+    top: 31rem;
+    left: 42rem;
+    margin: auto;
+    background-color: darkorange;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+input{
+    width: 2.5rem;
+    height: 3rem;
+    font-size:2.8rem;
+    text-align: center;
+    display: none;
+    position: absolute;
+    top: 25rem;
+    left: 49.2rem;
+    color: rgb(255 255 0);
+    font-family: 'OnFire';
+    -webkit-text-stroke: 2px rgb(255 0 0);
+    background-color: black;
+}
+
+#reponse{
+    border: 1px solid black;
+    position: absolute;
+    top: 18rem;
+    left: 67rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+}
+
+#reponse td{
+    border: 1px solid black;
+     height: 3rem;
+    width: 3rem;
+    border-radius: 10px;
+    background-color: red;
+    color: yellow;
+}
+#reponse td p{
+    visibility: hidden;
+    text-align: center;
+    font-size: 3rem;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    
+}
+
+#histo{
+    position: absolute;
+    left: 35rem;
+    bottom: 1rem;
+    z-index: 10;
+    text-align: start;
+    display: none;
+    font-size: 3.5rem;
+    color: white;
+    background-color: transparent;
+    -webkit-text-stroke: 0px rgb(0, 0, 0);
+
+}
+#votre{
+    color:red;
+    font-size: 3rem;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    position: absolute;
+    top: 20rem;
+    left: 43rem;
+    display: none;
+}
+
+.bilan{
+    margin-left: 21rem;
+}
